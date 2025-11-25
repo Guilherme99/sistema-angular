@@ -1,0 +1,28 @@
+<p-toast></p-toast>
+
+<app-loader [show]="loading"></app-loader>
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-700 p-4 space-y-6 background-image">
+ <h2 class="text-5xl font-bold text-white drop-shadow-lg">Login</h2>
+
+  <div class="p-card w-full max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-2xl shadow-black/90 p-6">
+    <div class="mb-4">
+      <label class="block mb-1 font-medium text-gray-1">Usuário</label>
+      <input type="text" [(ngModel)]="username" data-cy="input-username"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Digite seu usuário" />
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-1 font-medium text-gray-1">Senha</label>
+      <input type="password" [(ngModel)]="password" data-cy="input-password" 
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Digite sua senha" />
+    </div>
+
+    <button (click)="doLogin()" data-cy="btn-login"
+      class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+      Entrar
+    </button>
+  </div>
+</div>

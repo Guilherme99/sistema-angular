@@ -1,0 +1,42 @@
+<div class="main-layout-container">
+  <app-loader [show]="loading"></app-loader>
+  <header class="topbar flex items-center justify-between p-4 bg-blue-600 text-white">
+    <div class="flex items-center gap-4">
+      <!-- Botão hamburguer -->
+      <button (click)="toggleSidebar()" class="hamburger text-white text-2xl">
+        &#9776;
+      </button>
+
+      <a routerLink="/" class="flex items-center">
+        SISTEMA
+      </a>
+    </div>
+
+    <div class="user-info flex items-center gap-2">
+      
+      <div class="profile-icon flex items-center justify-center">
+        <span class="initials">{{ authService.user()?.username.charAt(0) }}</span>
+      </div>
+
+      <div class="user-text">
+        <span>{{ authService.user()?.username }}</span> -
+        <small>{{ authService.user()?.roles.join(', ') }}</small>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-content flex">
+    <nav class="sidebar" [ngClass]="{ 'open': isSidebarOpen, 'closed': !isSidebarOpen }">
+      <ul>
+        <li><a (click)="navigateTo('/dashboard')">Estatísticas</a></li>
+        <li><a (click)="navigateTo('/registrations')">Cadastros</a></li>
+        <li (click)="doLogout()">Logout</li>
+      </ul>
+
+    </nav>
+
+    <section class="content flex-1 p-6 bg-gray-50">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>

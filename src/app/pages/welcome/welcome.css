@@ -1,0 +1,21 @@
+@keyframes expandBlue {
+  from { height: 0; }
+  to { height: 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.show-blue {
+  animation: expandBlue 1.2s ease forwards;
+}
+
+.show-text {
+  animation: fadeIn 1s ease forwards;
+}
+
+.show-bone {
+  animation: fadeIn 1s ease forwards;
+}
