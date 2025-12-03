@@ -1,12 +1,12 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { Login } from './login';
-import { AuthService } from '../../services/auth.service';
-import { MessageService } from 'primeng/api';
-import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MessageService } from 'primeng/api';
+import { of, throwError } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
+import { Login } from './login';
 
 describe('Login Component', () => {
   let component: Login;
@@ -25,7 +25,7 @@ describe('Login Component', () => {
     routerSpy = jasmine.createSpyObj<Router>('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
-      imports: [FormsModule, Login, HttpClientTestingModule, RouterTestingModule],
+      imports: [FormsModule, Login],
       providers: [
         { provide: AuthService, useValue: authSpy },
         { provide: MessageService, useValue: msgSpy },
